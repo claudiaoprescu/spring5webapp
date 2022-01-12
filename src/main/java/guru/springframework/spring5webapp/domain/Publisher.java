@@ -21,6 +21,7 @@ public class Publisher {
     private String city;
     private String state;
     private String zip;
+    private String name;
 
     @OneToMany
     @JoinColumn(name = "publisher_id")
@@ -29,11 +30,12 @@ public class Publisher {
     public Publisher() {
     }
 
-    public Publisher(String addressLine1, String city, String state, String zip) {
+    public Publisher(String addressLine1, String city, String state, String zip, String name) {
         this.addressLine1 = addressLine1;
         this.city = city;
         this.state = state;
         this.zip = zip;
+        this.name = name;
     }
 
     public Long getId() {
@@ -76,6 +78,14 @@ public class Publisher {
         this.zip = zip;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public Set<Book> getBooks() {
         return books;
     }
@@ -89,12 +99,12 @@ public class Publisher {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Publisher publisher = (Publisher) o;
-        return id.equals(publisher.id) && Objects.equals(addressLine1, publisher.addressLine1) && Objects.equals(city, publisher.city) && Objects.equals(state, publisher.state) && Objects.equals(zip, publisher.zip);
+        return id.equals(publisher.id) && Objects.equals(addressLine1, publisher.addressLine1) && Objects.equals(city, publisher.city) && Objects.equals(state, publisher.state) && Objects.equals(zip, publisher.zip) && Objects.equals(name, publisher.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, addressLine1, city, state, zip);
+        return Objects.hash(id, addressLine1, city, state, zip, name);
     }
 
     @Override
@@ -105,6 +115,7 @@ public class Publisher {
                 ", city='" + city + '\'' +
                 ", state='" + state + '\'' +
                 ", zip='" + zip + '\'' +
+                ", name='" + name + '\'' +
                 '}';
     }
 }

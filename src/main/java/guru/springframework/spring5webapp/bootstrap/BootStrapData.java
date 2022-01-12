@@ -24,10 +24,10 @@ public class BootStrapData implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Publisher cluj = new Publisher("Strada Sperantei nr 5", "Cluj", "Romania", "353445");
+        Publisher cluj = new Publisher("Strada Sperantei nr 5", "Cluj", "Romania", "353445", "The Cluj Publisher");
 
         publisherRepository.save(cluj);
-        
+
         Author rebreanu = new Author("Liviu", "Rebreanu");
         Book ion = new Book("Ion", "11111132123");
         rebreanu.getBooks().add(ion);
